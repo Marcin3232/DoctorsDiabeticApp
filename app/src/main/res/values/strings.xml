@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">DoctorsDiabeticApp</string>
+    <string name="login">Logowanie</string>
+    <string name="ifNoAcount">Założ konto:</string>
+    <string name="registration">Zarejestruj</string>
+    <string name="register">Rejestracja</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="email"> Email</string>
 </resources>
