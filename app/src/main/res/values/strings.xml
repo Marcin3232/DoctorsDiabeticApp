@@ -7,4 +7,7 @@
     <string name="name">Name</string>
     <string name="surname">Surname</string>
     <string name="email"> Email</string>
+    <string name="loginTo">Zaloguj się</string>
+    <string name="panel">Panel Obsługi</string>
+    <string name="dane">Dane</string>
 </resources>
