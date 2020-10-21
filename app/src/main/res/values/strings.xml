@@ -10,4 +10,24 @@
     <string name="loginTo">Zaloguj się</string>
     <string name="panel">Panel Obsługi</string>
     <string name="dane">Dane</string>
+    <string name="opis">Opis</string>
+    <!--    Walidation-->
+    <string name="write_name">Należy wpisać imię</string>
+    <string name="write_surname">Należy wpisać nazwisko</string>
+    <string name="write_name_warning">Imie powinno zawierać tylko litery</string>
+    <string name="write_surname_warning">Nazwisko powinno zawierać tylko litery</string>
+    <string name="write_email">Wpisz swój email</string>
+    <string name="write_email_warning">Wprowadzone znaki w emailu są nie poprawne</string>
+    <string name="write_password">Wpisz hasło</string>
+    <string name="write_password_warning">Hasło powinno zawierac duże i małe litery oraz cyfry i
+        posiadać powyżej 8 znaków</string>
+    <string name="write_password_again">Wpisz ponownie hasło</string>
+    <string name="write_password_again_warning">Wpisane hasło nie jest takie same</string>
+    <!-- Registration   -->
+    <string name="registration_succesfull">Użytkownik został utworzony. Potwierdź rejestracje,
+    klikając na link wysłany na mail.</string>
+    <string name="registration_fail">Rejestracja nie powiodła się, spróbuj jeszcze raz.</string>
+
+
+
 </resources>
