@@ -18,7 +18,7 @@
         android:id="@+id/sign_out"
         android:icon="@drawable/menu_sign_out"
         android:orderInCategory="1"
-        android:title="refresh"
+        android:title="sign out"
         app:showAsAction="always" />
 
 </menu>

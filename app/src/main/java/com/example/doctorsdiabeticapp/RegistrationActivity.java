@@ -62,7 +62,7 @@ public class RegistrationActivity extends AppCompatActivity {
         Registration = findViewById(R.id.buttonRegister);
         verificationInputText = new VerificationInputText();
         mAuth = FirebaseAuth.getInstance();
-        loadingbar=new Loadingbar(this);
+        loadingbar = new Loadingbar(this);
     }
 
     private boolean Validation() {
@@ -82,7 +82,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 getResources().getString(R.string.write_password_again),
                 getResources().getString(R.string.write_password_again_warning));
         if ((name && surname && email && password && passwordAgain) == false) {
-            Toast.makeText(RegistrationActivity.this, "Należy uzupełnić wszystkie pola poprawnie",
+            Toast.makeText(RegistrationActivity.this,
+                    getResources().getString(R.string.correct_need_all),
                     Toast.LENGTH_SHORT).show();
             return false;
 
@@ -131,6 +132,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     });
 
                 } else {
+                    Log.e("0", "Create account fail");
                     loadingbar.dismissbar();
                     Toast.makeText(getApplicationContext(),
                             getResources().getText(R.string.registration_fail),

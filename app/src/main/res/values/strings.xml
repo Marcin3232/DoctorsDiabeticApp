@@ -26,8 +26,15 @@
     <!-- Registration   -->
     <string name="registration_succesfull">Użytkownik został utworzony. Potwierdź rejestracje,
     klikając na link wysłany na mail.</string>
+    <string name="correct_need_all">Należy uzupełnić wszystkie pola poprawnie</string>
     <string name="registration_fail">Rejestracja nie powiodła się, spróbuj jeszcze raz.</string>
-
+    <!--    Sign in-->
+    <string name="fail_sign_in">Niepoprawny email lub hasło</string>
+    <string name="failure_sign_in">Logowanie zakończone niepowodzeniem, spróbuj jeszcze raz</string>
+    <string name="email_check_verify">Sprawdz skrzynkę odbiorczą i zweryfikuj email</string>
+<!--    message box-->
+    <string name="question_leave_app">Czy chcesz wyjść z aplikacji?</string>
+    <string name="question_sign_out">Czy chcesz się wylogować?</string>
 
 
 </resources>

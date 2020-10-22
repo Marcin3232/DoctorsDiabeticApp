@@ -9,11 +9,15 @@ import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     Button Login;
     TextView Registration;
     View view;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         Registration = findViewById(R.id.buttonRegister);
         Login.setOnClickListener(this);
         Registration.setOnClickListener(this);
+        mAuth = FirebaseAuth.getInstance();
 
 
     }
@@ -47,6 +52,16 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             default:
                 break;
 
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            startActivity(new Intent(getApplicationContext(), MainWindowActivity.class));
+            finish();
         }
     }
 
