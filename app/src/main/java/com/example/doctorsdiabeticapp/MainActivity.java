@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     Button Login;
     TextView Registration;
-    View view;
     FirebaseAuth mAuth;
 
     @Override
@@ -24,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Initzialize();
-
     }
 
 
@@ -34,8 +32,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         Login.setOnClickListener(this);
         Registration.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
-
-
     }
 
     public void onClick(View v) {

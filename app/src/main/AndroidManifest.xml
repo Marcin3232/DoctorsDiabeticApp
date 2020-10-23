@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminPanelActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".AdminPanelActivity" />
         <activity android:name=".CzatActivity" />
         <activity android:name=".MainWindowActivity" />
         <activity android:name=".LoginActivity" />
@@ -25,7 +26,7 @@
         <activity
             android:name=".RegistrationActivity"
             android:windowSoftInputMode="stateVisible|adjustPan" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

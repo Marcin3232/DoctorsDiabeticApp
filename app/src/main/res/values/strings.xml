@@ -43,7 +43,7 @@
     <string name="message">Wiadomości</string>
     <string name="updata_account">Aktualizuj dane</string>
     <string name="setting">Ustawienia</string>
-<!--    Admin Panel-->
+    <!--    Admin Panel-->
     <string name="admin_panel">Admin Panel</string>
     <string name="admin_describe">Panel admina służy do weryfikacji nowych kont Lekarzy oraz innych
         uprawnionych osób do konsultacji elektronicznej z pacjentami. Admin może dodawac
