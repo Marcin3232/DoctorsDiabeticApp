@@ -32,9 +32,24 @@
     <string name="fail_sign_in">Niepoprawny email lub hasło</string>
     <string name="failure_sign_in">Logowanie zakończone niepowodzeniem, spróbuj jeszcze raz</string>
     <string name="email_check_verify">Sprawdz skrzynkę odbiorczą i zweryfikuj email</string>
-<!--    message box-->
+    <!--    message box-->
     <string name="question_leave_app">Czy chcesz wyjść z aplikacji?</string>
     <string name="question_sign_out">Czy chcesz się wylogować?</string>
-
+    <!--    Warning message-->
+    <string name="warning_message">Należy uzupełnić wszystkie dane i zaaktualizować konto.
+        Kliknij w to okienko lub wybierz w menu ustawienia. Po aktualizacji i zatwierdzeniu
+        wprowadzonych danych odblokują się opcje.</string>
+    <!--Menu-->
+    <string name="message">Wiadomości</string>
+    <string name="updata_account">Aktualizuj dane</string>
+    <string name="setting">Ustawienia</string>
+<!--    Admin Panel-->
+    <string name="admin_panel">Admin Panel</string>
+    <string name="admin_describe">Panel admina służy do weryfikacji nowych kont Lekarzy oraz innych
+        uprawnionych osób do konsultacji elektronicznej z pacjentami. Admin może dodawac
+        nowych użytkowników oraz przydzielać rangę admina.</string>
+    <string name="admin_add">Zweryfikuj nowych użytkowników</string>
+    <string name="admin_view_users">Przęgląd zweryfikowanych użytkowników</string>
+    <string name="admin_add_admin">Dodaj nowego admina</string>
 
 </resources>
