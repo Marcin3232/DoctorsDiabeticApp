@@ -28,10 +28,11 @@ public class MessageBox extends Dialog implements android.view.View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Initzialize();
+        Initialize();
+
     }
 
-    public void Initzialize() {
+    public void Initialize() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.message_box);
         commit = findViewById(R.id.Commit);

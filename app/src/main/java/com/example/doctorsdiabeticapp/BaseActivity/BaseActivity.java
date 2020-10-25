@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.doctorsdiabeticapp.CzatActivity;
+import com.example.doctorsdiabeticapp.MainWindowActivity;
 import com.example.doctorsdiabeticapp.OtherClass.MessageBox;
 import com.example.doctorsdiabeticapp.R;
 import static com.example.doctorsdiabeticapp.R.*;

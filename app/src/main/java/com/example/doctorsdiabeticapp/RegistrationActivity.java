@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.doctorsdiabeticapp.AddidiotalView.Loadingbar;
@@ -28,6 +30,7 @@ public class RegistrationActivity extends AppCompatActivity {
     Button Registration;
     VerificationInputText verificationInputText;
     Loadingbar loadingbar;
+    Spinner Spinner_gender;
     private FirebaseAuth mAuth;
 
 
@@ -60,6 +63,13 @@ public class RegistrationActivity extends AppCompatActivity {
         Password = findViewById(R.id.editTextPassword);
         AgainPassword = findViewById(R.id.editTextPasswordAgain);
         Registration = findViewById(R.id.buttonRegister);
+        Spinner_gender = findViewById(R.id.spinner_gender);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,
+                R.layout.spinner_custom,
+                getResources().getStringArray(R.array.spinner_items_gender));
+        adapter.setDropDownViewResource(R.layout.spinner_custom);
+        Spinner_gender.setAdapter(adapter);
         verificationInputText = new VerificationInputText();
         mAuth = FirebaseAuth.getInstance();
         loadingbar = new Loadingbar(this);
@@ -108,13 +118,13 @@ public class RegistrationActivity extends AppCompatActivity {
                     Doctor doctor = new Doctor(
                             Name.getText().toString(),
                             Surname.getText().toString(),
-                            "null",
+                            "",
                             false,
                             user.getEmail(),
-                            "null",
-                            "null",
-                            user.getUid()
-
+                            "",
+                            "",
+                            user.getUid(),
+                            Spinner_gender.getSelectedItem().toString()
                     );
 
                     FirebaseDatabase.getInstance().getReference("Doctors")

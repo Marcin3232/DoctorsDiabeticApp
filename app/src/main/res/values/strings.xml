@@ -4,13 +4,20 @@
     <string name="ifNoAcount">Założ konto:</string>
     <string name="registration">Zarejestruj</string>
     <string name="register">Rejestracja</string>
-    <string name="name">Name</string>
-    <string name="surname">Surname</string>
+    <string name="name">Imię</string>
+    <string name="surname">Nazwisko</string>
     <string name="email"> Email</string>
     <string name="loginTo">Zaloguj się</string>
     <string name="panel">Panel Obsługi</string>
     <string name="dane">Dane</string>
     <string name="opis">Opis</string>
+    <string name="name_change">Imię:</string>
+    <string name="surname_change">Nazwisko:</string>
+    <string name="email_change">Email:</string>
+    <string name="gender_change">Płeć</string>
+    <string name="title_change">Tytuł:</string>
+    <string name="phone_change">Telefon:</string>
+    <string name="describe_change">Opis:</string>
     <!--    Walidation-->
     <string name="write_name">Należy wpisać imię</string>
     <string name="write_surname">Należy wpisać nazwisko</string>
@@ -51,5 +58,12 @@
     <string name="admin_add">Zweryfikuj nowych użytkowników</string>
     <string name="admin_view_users">Przęgląd zweryfikowanych użytkowników</string>
     <string name="admin_add_admin">Dodaj nowego admina</string>
+
+    <!--    Spinner Gender-->
+    <string-array name="spinner_items_gender">
+        <item>Kobieta</item>
+        <item>Mężczyzna</item>
+    </string-array>
+    <string name="commit">Zatwierdź</string>
 
 </resources>

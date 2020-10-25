@@ -10,11 +10,12 @@ public class Doctor {
     private String describe;
     private String phone;
     private String id;
+    private String gender;
 
     public Doctor() {
     }
 
-    public Doctor(String name, String surname, String title, Boolean verification, String email, String describe, String phone, String id) {
+    public Doctor(String name, String surname, String title, Boolean verification, String email, String describe, String phone, String id,String gender) {
         this.name = name;
         this.surname = surname;
         this.title = title;
@@ -23,6 +24,7 @@ public class Doctor {
         this.describe = describe;
         this.phone = phone;
         this.id = id;
+        this.gender=gender;
     }
 
 
@@ -88,5 +90,13 @@ public class Doctor {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
