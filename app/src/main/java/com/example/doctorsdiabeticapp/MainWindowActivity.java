@@ -5,12 +5,12 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.doctorsdiabeticapp.BaseActivity.BaseActivity;
+import com.example.doctorsdiabeticapp.FireBase.DoctorCheckBlankFieldsCallback;
+import com.example.doctorsdiabeticapp.FireBase.ReadDataBaseDoctor;
 import com.example.doctorsdiabeticapp.Model.Doctor;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,15 +27,6 @@ public class MainWindowActivity extends BaseActivity implements View.OnClickList
     FirebaseAuth mAuth;
     DatabaseReference reference;
     CardView card_Message, card_Warning, card_Setting;
-    private String name;
-    private String surname;
-    private Boolean verification;
-    private String email;
-    private String describe;
-    private String phone;
-    private String id;
-    private String gender;
-
 
 
     @Override
@@ -43,8 +34,8 @@ public class MainWindowActivity extends BaseActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_window);
         Initialize();
-      // checkData();
         DataView();
+        checkData();
         setToolbar(title);
     }
 
@@ -82,6 +73,21 @@ public class MainWindowActivity extends BaseActivity implements View.OnClickList
         });
     }
 
+
+    public void checkData() {
+        ReadDataBaseDoctor readDataBaseDoctor = new ReadDataBaseDoctor(mAuth, reference);
+        readDataBaseDoctor.checkEmptyData(new DoctorCheckBlankFieldsCallback() {
+            @Override
+            public void onCallback(boolean value) {
+                if (value == true) {
+                    card_Warning.setVisibility(View.GONE);
+                } else {
+                    card_Warning.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+    }
+
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.cardView_Message:
@@ -98,37 +104,5 @@ public class MainWindowActivity extends BaseActivity implements View.OnClickList
         }
     }
 
-//    public void getData() {
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        reference = FirebaseDatabase.getInstance().getReference("Doctors")
-//                .child(mAuth.getUid());
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                Doctor doctor = snapshot.getValue(Doctor.class);
-//                name = doctor.getName();
-//                surname = doctor.getSurname();
-//                email = doctor.getEmail();
-//                title = doctor.getTitle();
-//                phone = doctor.getPhone();
-//                describe = doctor.getDescribe();
-//                gender = doctor.getGender();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Log.e("1", "Connection and take data failure!");
-//            }
-//        });
-//
-//    }
-//
-//    public Boolean CheckBlankValue() {
-//        if (name.equals("") || surname.isEmpty() || email.isEmpty() || phone.isEmpty() ||
-//                describe.isEmpty() || gender.isEmpty() || title.isEmpty()) {
-//            return false;
-//        } else {
-//            return true;
-//        }
-//    }
+
 }

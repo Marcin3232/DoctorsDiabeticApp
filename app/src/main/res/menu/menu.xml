@@ -4,19 +4,19 @@
 
     <item
         android:id="@+id/message"
-        android:icon="@drawable/chat_icon"
+        android:icon="@drawable/toolbar_message_icon"
         android:orderInCategory="1"
         android:title="message"
         app:showAsAction="always" />
     <item
         android:id="@+id/refresh"
-        android:icon="@drawable/refresh_icon2"
+        android:icon="@drawable/toolbar_refresh_icon"
         android:orderInCategory="1"
         android:title="refresh"
         app:showAsAction="always" />
     <item
         android:id="@+id/sign_out"
-        android:icon="@drawable/menu_sign_out"
+        android:icon="@drawable/toolbar_logout_icon"
         android:orderInCategory="1"
         android:title="sign out"
         app:showAsAction="always" />

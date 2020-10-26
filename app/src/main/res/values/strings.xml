@@ -18,6 +18,11 @@
     <string name="title_change">Tytuł:</string>
     <string name="phone_change">Telefon:</string>
     <string name="describe_change">Opis:</string>
+    <!--    ToolBar-->
+    <string name="setting_toolbar">Ustawienia</string>
+    <string name="update_toolbar">Aktualizuj Dane</string>
+    <string name="change_email_password_toolbar">Edytuj dane</string>
+    <string name="add_photo_toolbar">Dodaj zdjięcie</string>
     <!--    Walidation-->
     <string name="write_name">Należy wpisać imię</string>
     <string name="write_surname">Należy wpisać nazwisko</string>
@@ -30,6 +35,15 @@
         posiadać powyżej 8 znaków</string>
     <string name="write_password_again">Wpisz ponownie hasło</string>
     <string name="write_password_again_warning">Wpisane hasło nie jest takie same</string>
+    <string name="write_title">Wpisz swój tytuł naukowy lub tytuł określający twoją rolę</string>
+    <string name="write_title_waring">Tytuł powinnien składac się z samych liter.</string>
+    <string name="write_phone">Wpisz swój numer telefonu</string>
+    <string name="write_phone_warning">Numer telefonu powinnien się składać z 9 cyfr lub
+    dodatkowo z numerem kierunkowym zawartym w nawiasach</string>
+    <string name="write_describe">Przedstaw się, uzupełnij swój opis o sobie</string>
+    <string name="write_describe_warning">Opis powinien zawierać minimum 60 znaków</string>
+    <string name="updata_fail">Aktualizacja danych nie powiodła się</string>
+    <string name="success_updata">Dane zostały zapisane</string>
     <!-- Registration   -->
     <string name="registration_succesfull">Użytkownik został utworzony. Potwierdź rejestracje,
     klikając na link wysłany na mail.</string>
@@ -65,5 +79,9 @@
         <item>Mężczyzna</item>
     </string-array>
     <string name="commit">Zatwierdź</string>
+    <!--    Settings-->
+    <string name="update_setting">Zaaktualizuj dane</string>
+    <string name="change_password_email_setting">Zmień adress E-mail lub hasło</string>
+    <string name="add_photo_setting">Dodaj zdjięcie</string>
 
 </resources>

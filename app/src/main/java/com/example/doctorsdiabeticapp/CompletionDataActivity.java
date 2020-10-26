@@ -1,25 +1,21 @@
 package com.example.doctorsdiabeticapp;
 
-import androidx.annotation.NonNull;
-
 import android.os.Bundle;
-import android.view.Window;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.example.doctorsdiabeticapp.AddidiotalView.Loadingbar;
 import com.example.doctorsdiabeticapp.BaseActivity.BaseActivity;
+import com.example.doctorsdiabeticapp.FireBase.DoctorCallback;
+import com.example.doctorsdiabeticapp.FireBase.ReadDataBaseDoctor;
+import com.example.doctorsdiabeticapp.FireBase.WriteDataBaseDoctor;
 import com.example.doctorsdiabeticapp.Model.Doctor;
+import com.example.doctorsdiabeticapp.Validation.VerificationInputText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.annotations.NotNull;
-
-import java.util.ArrayList;
-
 
 
 public class CompletionDataActivity extends BaseActivity {
@@ -28,10 +24,12 @@ public class CompletionDataActivity extends BaseActivity {
     Spinner Gender;
     FirebaseAuth mAuth;
     DatabaseReference reference;
-    ArrayList<Doctor> doctors;
-
-   String licz;
-
+    Button CommitButton;
+    VerificationInputText verificationInputText;
+    Doctor doctor;
+    Loadingbar loadingbar;
+    androidx.appcompat.widget.Toolbar toolbar;
+    String title;
 
 
     @Override
@@ -39,8 +37,25 @@ public class CompletionDataActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_completion_data);
         Initialize();
-        getData();
-        Name.setText(licz);
+        LoadData();
+        CommitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Validation() == true) {
+                    loadingbar.showDialog();
+                    doctor = getDoctor();
+                    WriteDataBaseDoctor writeDataBaseDoctor = new WriteDataBaseDoctor(mAuth);
+                    writeDataBaseDoctor.UpdateDataBase(doctor, loadingbar);
+                    Toast.makeText(getApplicationContext(),
+                            getResources().getString(R.string.success_updata),
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(),
+                            getResources().getText(R.string.updata_fail),
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 
@@ -51,37 +66,72 @@ public class CompletionDataActivity extends BaseActivity {
         Title = findViewById(R.id.edit_Title);
         Email = findViewById(R.id.edit_Email);
         Phone = findViewById(R.id.edit_Phone);
+        CommitButton = findViewById(R.id.Commit_Change_button);
         Describe = findViewById(R.id.edit_Describe);
         mAuth = FirebaseAuth.getInstance();
-        doctors=new ArrayList<>();
-
+        verificationInputText = new VerificationInputText();
+        loadingbar = new Loadingbar(this);
+        toolbar = findViewById(R.id.toolbar);
+        title = getResources().getString(R.string.update_toolbar);
+        setToolbarOther(title);
     }
 
-
-    public void getData() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("Doctors")
-                .child(mAuth.getUid());
-        reference.addValueEventListener(new ValueEventListener() {
+    public void LoadData() {
+        ReadDataBaseDoctor dataBaseDoctor = new ReadDataBaseDoctor(mAuth, reference);
+        dataBaseDoctor.getData(new DoctorCallback() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                licz=snapshot.getValue(Doctor.class).getName();
-                 Doctor doctor = snapshot.getValue(Doctor.class);
-
-//             Name.setText(licz);
-//                Surname.setText(doctor.getSurname());
-//                Email.setText(doctor.getEmail());
-
-                if(doctor.getDescribe().equals("null")){
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCallback(Doctor value) {
+                Name.setText(value.getName());
+                Surname.setText(value.getSurname());
+                Title.setText(value.getTitle());
+                Email.setText(value.getEmail());
+                Phone.setText(value.getPhone());
+                Describe.setText(value.getDescribe());
             }
         });
     }
 
+    private boolean Validation() {
+        boolean name = verificationInputText.validateName(Name,
+                getResources().getString(R.string.write_name),
+                getResources().getString(R.string.write_name_warning));
+        boolean surname = verificationInputText.validateName(Surname,
+                getResources().getString(R.string.write_surname),
+                getResources().getString(R.string.write_surname_warning));
+        boolean email = verificationInputText.validateEmail(Email,
+                getResources().getString(R.string.write_email),
+                getResources().getString(R.string.write_email_warning));
+        boolean title = verificationInputText.validateName(Title,
+                getResources().getString(R.string.write_title),
+                getResources().getString(R.string.write_title_waring));
+        boolean phone = verificationInputText.validatePhoneNumber(Phone,
+                getResources().getString(R.string.write_phone),
+                getResources().getString(R.string.write_phone_warning));
+        boolean describe = verificationInputText.validateDescription(Describe,
+                getResources().getString(R.string.write_describe),
+                getResources().getString(R.string.write_describe_warning));
+        if ((name && surname && email && title && phone && describe) == false) {
+            Toast.makeText(CompletionDataActivity.this,
+                    getResources().getString(R.string.correct_need_all),
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        } else {
+            return name && surname && email && title && phone && describe;
+        }
+    }
+
+    public Doctor getDoctor() {
+        doctor = new Doctor(
+                Name.getText().toString(),
+                Surname.getText().toString(),
+                Title.getText().toString(),
+                false,
+                Email.getText().toString(),
+                Describe.getText().toString(),
+                Phone.getText().toString(),
+                mAuth.getUid(),
+                Gender.getSelectedItem().toString());
+        return doctor;
+    }
 
 }

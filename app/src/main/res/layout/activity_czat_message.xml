@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CzatMessageActivity">
+
+    <include layout="@layout/top_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_czat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/czat_bottom_send_message" />
+
+        <RelativeLayout
+            android:id="@+id/czat_bottom_send_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/czat_text_send"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/czat_button_send"
+                android:background="@drawable/edit_text_custom"
+                android:hint="Wpsz wiadomość..."
+                android:padding="5dp"
+                android:textSize="24dp" />
+
+            <ImageButton
+                android:id="@+id/czat_button_send"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/send"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

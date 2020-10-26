@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".ChangeEmailPasswordActivity"></activity>
+        <activity android:name=".AddPhotoActivity" />
+        <activity android:name=".CzatMessageActivity" />
+        <activity android:name=".SettingActivity" />
         <activity android:name=".CompletionDataActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".AdminPanelActivity" />
