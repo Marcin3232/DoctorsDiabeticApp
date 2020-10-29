@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.example.doctorsdiabeticapp.Model.Doctor;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,6 +16,7 @@ public class ReadDataBaseDoctor {
 
     FirebaseAuth mAuth;
     DatabaseReference reference;
+    FirebaseUser fUser;
     private Doctor doctor;
 
     public ReadDataBaseDoctor() {
@@ -23,6 +25,12 @@ public class ReadDataBaseDoctor {
     public ReadDataBaseDoctor(FirebaseAuth mAuth, DatabaseReference reference) {
         this.mAuth = mAuth;
         this.reference = reference;
+    }
+
+    public ReadDataBaseDoctor(FirebaseAuth mAuth, DatabaseReference reference, FirebaseUser fUser) {
+        this.mAuth = mAuth;
+        this.reference = reference;
+        this.fUser = fUser;
     }
 
     public void getData(final DoctorCallback callback) {
@@ -49,14 +57,13 @@ public class ReadDataBaseDoctor {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 doctor = snapshot.getValue(Doctor.class);
-                boolean check=true;
-                if(doctor.getDescribe().isEmpty()||doctor.getName().isEmpty()||
-                        doctor.getEmail().isEmpty()||doctor.getGender().isEmpty()||
-                        doctor.getSurname().isEmpty()||doctor.getPhone().isEmpty()||
-                        doctor.getTitle().isEmpty()){
+                boolean check = true;
+                if (doctor.getDescribe().isEmpty() || doctor.getName().isEmpty() ||
+                        doctor.getEmail().isEmpty() || doctor.getGender().isEmpty() ||
+                        doctor.getSurname().isEmpty() || doctor.getPhone().isEmpty() ||
+                        doctor.getTitle().isEmpty()) {
                     callback.onCallback(false);
-                }
-                else {
+                } else {
                     callback.onCallback(true);
                 }
             }

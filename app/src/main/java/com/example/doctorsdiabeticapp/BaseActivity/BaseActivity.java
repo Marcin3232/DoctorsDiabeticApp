@@ -2,10 +2,8 @@ package com.example.doctorsdiabeticapp.BaseActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.Sampler;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -14,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.doctorsdiabeticapp.CzatActivity;
-import com.example.doctorsdiabeticapp.MainWindowActivity;
 import com.example.doctorsdiabeticapp.OtherClass.MessageBox;
 import com.example.doctorsdiabeticapp.R;
 
