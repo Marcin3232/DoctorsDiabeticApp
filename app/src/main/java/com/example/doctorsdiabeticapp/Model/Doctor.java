@@ -15,12 +15,11 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(String name, String surname, String title, Boolean verification, String email, String describe, String phone, String id,String gender) {
+    public Doctor(String name, String surname, String title, Boolean verification, String describe, String phone, String id,String gender) {
         this.name = name;
         this.surname = surname;
         this.title = title;
         this.verification = verification;
-        this.email = email;
         this.describe = describe;
         this.phone = phone;
         this.id = id;

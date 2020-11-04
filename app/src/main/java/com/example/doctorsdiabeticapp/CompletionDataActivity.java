@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 
 public class CompletionDataActivity extends BaseActivity {
 
-    EditText Name, Surname, Title, Email, Phone, Describe;
+    EditText Name, Surname, Title, Phone, Describe;
     Spinner Gender;
     FirebaseAuth mAuth;
     DatabaseReference reference;
@@ -41,7 +41,7 @@ public class CompletionDataActivity extends BaseActivity {
         CommitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Validation() == true) {
+                if (validation() == true) {
                     loadingbar.showDialog();
                     doctor = getDoctor();
                     WriteDataBaseDoctor writeDataBaseDoctor = new WriteDataBaseDoctor(mAuth);
@@ -64,7 +64,6 @@ public class CompletionDataActivity extends BaseActivity {
         Surname = findViewById(R.id.edit_Surname);
         Gender = findViewById(R.id.spinner_gender);
         Title = findViewById(R.id.edit_Title);
-        Email = findViewById(R.id.edit_Email);
         Phone = findViewById(R.id.edit_Phone);
         CommitButton = findViewById(R.id.Commit_Change_button);
         Describe = findViewById(R.id.edit_Describe);
@@ -84,23 +83,19 @@ public class CompletionDataActivity extends BaseActivity {
                 Name.setText(value.getName());
                 Surname.setText(value.getSurname());
                 Title.setText(value.getTitle());
-                Email.setText(value.getEmail());
                 Phone.setText(value.getPhone());
                 Describe.setText(value.getDescribe());
             }
         });
     }
 
-    private boolean Validation() {
+    private boolean validation() {
         boolean name = verificationInputText.validateName(Name,
                 getResources().getString(R.string.write_name),
                 getResources().getString(R.string.write_name_warning));
         boolean surname = verificationInputText.validateName(Surname,
                 getResources().getString(R.string.write_surname),
                 getResources().getString(R.string.write_surname_warning));
-        boolean email = verificationInputText.validateEmail(Email,
-                getResources().getString(R.string.write_email),
-                getResources().getString(R.string.write_email_warning));
         boolean title = verificationInputText.validateName(Title,
                 getResources().getString(R.string.write_title),
                 getResources().getString(R.string.write_title_waring));
@@ -110,13 +105,13 @@ public class CompletionDataActivity extends BaseActivity {
         boolean describe = verificationInputText.validateDescription(Describe,
                 getResources().getString(R.string.write_describe),
                 getResources().getString(R.string.write_describe_warning));
-        if ((name && surname && email && title && phone && describe) == false) {
+        if ((name && surname && title && phone && describe) == false) {
             Toast.makeText(CompletionDataActivity.this,
                     getResources().getString(R.string.correct_need_all),
                     Toast.LENGTH_SHORT).show();
             return false;
         } else {
-            return name && surname && email && title && phone && describe;
+            return name && surname && title && phone && describe;
         }
     }
 
@@ -126,7 +121,6 @@ public class CompletionDataActivity extends BaseActivity {
                 Surname.getText().toString(),
                 Title.getText().toString(),
                 false,
-                Email.getText().toString(),
                 Describe.getText().toString(),
                 Phone.getText().toString(),
                 mAuth.getUid(),

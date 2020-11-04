@@ -120,7 +120,6 @@ public class RegistrationActivity extends AppCompatActivity {
                             Surname.getText().toString(),
                             "",
                             false,
-                            user.getEmail(),
                             "",
                             "",
                             user.getUid(),

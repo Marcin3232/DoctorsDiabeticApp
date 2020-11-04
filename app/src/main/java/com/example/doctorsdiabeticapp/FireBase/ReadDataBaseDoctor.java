@@ -59,9 +59,8 @@ public class ReadDataBaseDoctor {
                 doctor = snapshot.getValue(Doctor.class);
                 boolean check = true;
                 if (doctor.getDescribe().isEmpty() || doctor.getName().isEmpty() ||
-                        doctor.getEmail().isEmpty() || doctor.getGender().isEmpty() ||
-                        doctor.getSurname().isEmpty() || doctor.getPhone().isEmpty() ||
-                        doctor.getTitle().isEmpty()) {
+                        doctor.getGender().isEmpty() || doctor.getSurname().isEmpty()
+                        || doctor.getPhone().isEmpty() || doctor.getTitle().isEmpty()) {
                     callback.onCallback(false);
                 } else {
                     callback.onCallback(true);

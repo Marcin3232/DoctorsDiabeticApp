@@ -18,12 +18,13 @@
     <string name="title_change">Tytuł:</string>
     <string name="phone_change">Telefon:</string>
     <string name="describe_change">Opis:</string>
+    <string name="editing_data">Edycja danych</string>
     <!--    ToolBar-->
     <string name="setting_toolbar">Ustawienia</string>
     <string name="update_toolbar">Aktualizuj Dane</string>
     <string name="change_email_password_toolbar">Edytuj dane</string>
     <string name="add_photo_toolbar">Dodaj zdjięcie</string>
-    <!--    Walidation-->
+    <!--    Validation-->
     <string name="write_name">Należy wpisać imię</string>
     <string name="write_surname">Należy wpisać nazwisko</string>
     <string name="write_name_warning">Imie powinno zawierać tylko litery</string>
@@ -33,6 +34,7 @@
     <string name="write_password">Wpisz hasło</string>
     <string name="write_password_warning">Hasło powinno zawierac duże i małe litery oraz cyfry i
         posiadać powyżej 8 znaków</string>
+    <string name="wrong_something">Coś poszło nie tak spróbuj jeszcze raz</string>
     <string name="write_password_again">Wpisz ponownie hasło</string>
     <string name="write_password_again_warning">Wpisane hasło nie jest takie same</string>
     <string name="write_title">Wpisz swój tytuł naukowy lub tytuł określający twoją rolę</string>
@@ -83,5 +85,18 @@
     <string name="update_setting">Zaaktualizuj dane</string>
     <string name="change_password_email_setting">Zmień adress E-mail lub hasło</string>
     <string name="add_photo_setting">Dodaj zdjięcie</string>
+    <!--    Message-->
+    <string name="empty_message_send">Nie można wysłać pustej wiadomości</string>
+    <!--    Activity ChangeEmailPassword -->
+    <string name="password_update">Hasło zostało zmienione! Zaloguj się ponownie do aplikacji.
+    </string>
+    <string name="password_update_fail">Hasło nie zostało zmienione, coś poszło nie tak!</string>
+    <string name="password_current_fail">Wpisane hasło jest niepoprawne, spróbuj jeszcze raz
+    </string>
+    <string name="email_upadate">Email został zmieniony! Należy potwierdzić na mailu nowy adress
+    i zalogowac się ponownie.</string>
+    <string name="email_update_fail">Email nie został zmieniony, coś poszło nie tak!</string>
+    <string name="empty_EditText">Należy uzupełnić wszystkie pola!</string>
+    <!--    -->
 
 </resources>

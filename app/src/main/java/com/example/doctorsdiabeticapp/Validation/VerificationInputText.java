@@ -118,6 +118,17 @@ public class VerificationInputText {
         }
     }
 
+    public boolean validateCheckEmpty(EditText Name, String WarningText) {
+        String check = Name.getText().toString().trim();
+        if (check.isEmpty()) {
+            Name.requestFocus();
+            Name.setError(WarningText);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 
 }
 
