@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     Button SignIn;
     VerificationInputText verificationInputText;
     Loadingbar loadingbar;
+    private String x;
     private FirebaseAuth mAuth;
 
     @Override
