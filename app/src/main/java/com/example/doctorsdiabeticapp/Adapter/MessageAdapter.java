@@ -1,21 +1,25 @@
 package com.example.doctorsdiabeticapp.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.doctorsdiabeticapp.Model.ChatMessage;
 import com.example.doctorsdiabeticapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder> {
 
@@ -51,11 +55,20 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MessageAdapter.ViewHolder holder, int position) {
+
         ChatMessage chatMessage = mChat.get(position);
         holder.show_message.setText(chatMessage.getMessage());
-        if (mImageUrl.equals("defaul")) {
-            holder.profileImage.setImageResource(R.drawable.example_profile);
-        } else {
+
+        try {
+            if (mImageUrl.equals("")) {
+                holder.profileImage.setImageResource(R.drawable.example_profile);
+            } else {
+                Glide.with(mContext).load(mImageUrl).into(holder.profileImage);
+            }
+        } catch (NullPointerException e) {
+            Log.e("TAG", "Exception: " + e.toString());
+        } catch (Exception e) {
+            Log.e("TAG", e.toString());
 
         }
     }
@@ -68,12 +81,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView show_message;
-        public ImageView profileImage;
+        public CircleImageView profileImage;
 
         public ViewHolder(View view) {
             super(view);
             show_message = view.findViewById(R.id.show_message_czat);
-            profileImage = view.findViewById(R.id.profile_image_czat);
+            profileImage = view.findViewById(R.id.profile_image);
         }
 
     }

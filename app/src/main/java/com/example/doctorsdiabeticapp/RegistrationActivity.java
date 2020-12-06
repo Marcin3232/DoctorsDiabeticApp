@@ -123,7 +123,8 @@ public class RegistrationActivity extends AppCompatActivity {
                             "",
                             "",
                             user.getUid(),
-                            Spinner_gender.getSelectedItem().toString()
+                            Spinner_gender.getSelectedItem().toString(),
+                            ""
                     );
 
                     FirebaseDatabase.getInstance().getReference("Doctors")

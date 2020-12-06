@@ -98,5 +98,12 @@
     <string name="email_update_fail">Email nie został zmieniony, coś poszło nie tak!</string>
     <string name="empty_EditText">Należy uzupełnić wszystkie pola!</string>
     <!--    -->
+    <string name="image_icon_description">image icon</string>
+    <string name="add_or_update_photo">Dodaj lub aktualizuj zdjęcie</string>
+    <string name="add_picture_fail">Dodawanie zdjęcia nie powiodło się.</string>
+    <string name="add_image_success">Obraz został pomyślnie dodany</string>
+    <string name="add_image_fail">Dodawanie obrazu nie powiodło się</string>
+    <string name="add_image_cancel">Dodawanie obrazu zostało anulowane</string>
+    <string name="add_photo_string">Dodaj zdjęcie</string>
 
 </resources>

@@ -124,7 +124,9 @@ public class CompletionDataActivity extends BaseActivity {
                 Describe.getText().toString(),
                 Phone.getText().toString(),
                 mAuth.getUid(),
-                Gender.getSelectedItem().toString());
+                Gender.getSelectedItem().toString(),
+                doctor.getUrlImage()
+                );
         return doctor;
     }
 

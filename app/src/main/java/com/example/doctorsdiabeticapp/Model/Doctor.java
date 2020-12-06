@@ -11,11 +11,13 @@ public class Doctor {
     private String phone;
     private String id;
     private String gender;
+    private String urlImage;
 
     public Doctor() {
     }
 
-    public Doctor(String name, String surname, String title, Boolean verification, String describe, String phone, String id,String gender) {
+    public Doctor(String name, String surname, String title, Boolean verification,
+                  String describe, String phone, String id, String gender, String url) {
         this.name = name;
         this.surname = surname;
         this.title = title;
@@ -23,7 +25,8 @@ public class Doctor {
         this.describe = describe;
         this.phone = phone;
         this.id = id;
-        this.gender=gender;
+        this.gender = gender;
+        this.urlImage = url;
     }
 
 
@@ -97,5 +100,13 @@ public class Doctor {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
     }
 }

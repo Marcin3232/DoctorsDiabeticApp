@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.doctorsdiabeticapp.Adapter.MessageAdapter;
 import com.example.doctorsdiabeticapp.BaseActivity.BaseActivity;
 import com.example.doctorsdiabeticapp.Model.ChatMessage;
@@ -73,7 +74,13 @@ public class CzatMessageActivity extends BaseActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
-                readMessage(fUser.getUid(), userId, fUser.getEmail());
+//                if(user.getUrlImage().equals("")){
+//                    profile_image.setImageResource(R.drawable.example_profile);
+//                }
+//                else {
+//                    Glide.with(getApplicationContext()).load(user.getUrlImage()).into(profile_image);
+//                }
+                readMessage(fUser.getUid(), userId, user.getUrlImage());
             }
 
             @Override
@@ -98,6 +105,7 @@ public class CzatMessageActivity extends BaseActivity {
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         reference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
+        profile_image=findViewById(R.id.profile_image_czat);
     }
 
     private boolean emptyMessage() {
@@ -144,7 +152,8 @@ public class CzatMessageActivity extends BaseActivity {
         reference.child("Chat").push().setValue(hashMap);
     }
 
-    private void readMessage(final String messageSender, final String messageReceiver, final String imageurl) {
+    private void readMessage(final String messageSender, final String messageReceiver,
+                             final String imageurl) {
         mchat = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference("Chat");
         reference.addValueEventListener(new ValueEventListener() {
@@ -158,9 +167,9 @@ public class CzatMessageActivity extends BaseActivity {
                                     chatMessage.getSender().equals(messageSender)) {
                         mchat.add(chatMessage);
                     }
-                    ;
 
-                    messageAdapter = new MessageAdapter(CzatMessageActivity.this, mchat, imageurl);
+
+                    messageAdapter = new MessageAdapter(getApplicationContext(), mchat, imageurl);
                     recyclerView.setAdapter(messageAdapter);
                 }
             }

@@ -12,7 +12,8 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(String name, String surname, String email, String phone, Boolean verification, String id) {
+    public Admin(String name, String surname, String email, String phone,
+                 Boolean verification, String id) {
         this.name = name;
         this.surname = surname;
         this.email = email;
