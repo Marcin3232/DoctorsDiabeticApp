@@ -34,7 +34,7 @@ public class MainWindowActivity extends BaseActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_window);
         Initialize();
-        DataView();
+        dataView();
         checkData();
         setToolbar(title);
     }
@@ -54,7 +54,7 @@ public class MainWindowActivity extends BaseActivity implements View.OnClickList
     }
 
 
-    public void DataView() {
+    public void dataView() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Doctors")
                 .child(mAuth.getUid());

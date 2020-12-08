@@ -18,242 +18,240 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-            <GridLayout
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:alignmentMode="alignMargins"
-                android:columnCount="1"
-                android:columnOrderPreserved="false"
-                android:rowCount="1">
+                android:orientation="vertical">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView_Main"
-                    android:layout_width="wrap_content"
+                <GridLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="12dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="6dp">
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="1"
+                    android:columnOrderPreserved="false"
+                    android:rowCount="1">
 
-                    <RelativeLayout
-                        android:layout_width="399dp"
-                        android:layout_height="155dp">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView_Main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="6dp">
 
-                        <ImageView
-                            android:id="@+id/profile_image"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:src="@drawable/admin_icon" />
+                        <RelativeLayout
+                            android:layout_width="399dp"
+                            android:layout_height="155dp">
+
+                            <ImageView
+                                android:id="@+id/profile_image"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:src="@drawable/admin_icon" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_toEndOf="@id/profile_image"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:id="@+id/TextView_Name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/name"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/TextView_Email"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:autoSizeTextType="uniform"
+                                    android:text="@string/email"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/admin_describe"
+                                    android:textColor="@color/black" />
+
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+                </GridLayout>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="2"
+                    android:columnOrderPreserved="false"
+                    android:rowCount="3">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView_Verification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="6dp">
 
                         <LinearLayout
+
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_toRightOf="@id/profile_image"
-                            android:orientation="vertical">
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="@string/admin_panel"
-                                android:textColor="@color/black"
-                                android:textSize="28dp"
-                                android:textStyle="bold" />
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/add_new_user_icon" />
 
-                            <TextView
-                                android:id="@+id/TextView_Name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/name"
-                                android:textColor="@color/black"
-                                android:textSize="20dp" />
-
-
-                            <TextView
-                                android:id="@+id/TextView_Email"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/email"
-                                android:textColor="@color/black"
-                                android:textSize="20dp" />
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/black"
-                                android:textSize="16dp"
-                                android:text="@string/admin_describe"/>
+                                android:layout_marginTop="12dp"
+                                android:gravity="center"
 
-
+                                android:text="@string/admin_add"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
                         </LinearLayout>
 
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-            </GridLayout>
-
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:alignmentMode="alignMargins"
-                android:columnCount="2"
-                android:columnOrderPreserved="false"
-                android:rowCount="3">
-
-                <androidx.cardview.widget.CardView
-                android:id="@+id/cardView_Verification"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="12dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp">
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/add_new_user_icon" />
-
-                    <TextView
-                        android:layout_width="match_parent"
+                    </androidx.cardview.widget.CardView>
+                    <!--CardView Consultation-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView_View_Users"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:gravity="center"
-                        android:text="@string/admin_add"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="6dp">
 
-            </androidx.cardview.widget.CardView>
-                <!--CardView Consultation-->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView_View_Users"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="12dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="6dp">
+                        <LinearLayout
 
-                    <LinearLayout
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/view_users_icon" />
-
-                        <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
+                            android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="@string/admin_view_users"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                            android:orientation="vertical"
+                            android:padding="16dp">
 
-                </androidx.cardview.widget.CardView>
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/view_users_icon" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView_Add_admin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="12dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="6dp">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:gravity="center"
+                                android:text="@string/admin_view_users"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
-                    <LinearLayout
+                    </androidx.cardview.widget.CardView>
 
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView_Add_admin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="6dp">
 
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/admin_icon" />
+                        <LinearLayout
 
-                        <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
+                            android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="@string/admin_add_admin"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                            android:orientation="vertical"
+                            android:padding="16dp">
 
-                </androidx.cardview.widget.CardView>
-                <!--CardView Consultation-->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView_Setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="12dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="6dp">
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/admin_icon" />
 
-                    <LinearLayout
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:gravity="center"
+                                android:text="@string/admin_add_admin"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+                    </androidx.cardview.widget.CardView>
+                    <!--CardView Consultation-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView_Setting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="6dp">
 
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/menu_settings" />
+                        <LinearLayout
 
-                        <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
+                            android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="@string/setting"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                            android:orientation="vertical"
+                            android:padding="16dp">
 
-                </androidx.cardview.widget.CardView>
-            </GridLayout>
-</LinearLayout>
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/menu_settings" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:gravity="center"
+                                android:text="@string/setting"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+                </GridLayout>
+            </LinearLayout>
         </ScrollView>
     </LinearLayout>
 

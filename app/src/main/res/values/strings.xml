@@ -105,5 +105,9 @@
     <string name="add_image_fail">Dodawanie obrazu nie powiodło się</string>
     <string name="add_image_cancel">Dodawanie obrazu zostało anulowane</string>
     <string name="add_photo_string">Dodaj zdjęcie</string>
+    <string name="admin_fail_login_passw_or_verif">Nie poprawne hasło lub konto jeszcze nie zweryfikowane</string>
+    <string name="signIn_admin">Zaloguj się jako Admin</string>
+    <string name="verified_users_string">Zweryfikowani użytkownicy</string>
+    <string name="unverification_users_string">Nie zweryfikowani użytkownicy</string>
 
 </resources>

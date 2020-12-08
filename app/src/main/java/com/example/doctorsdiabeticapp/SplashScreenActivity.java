@@ -1,19 +1,25 @@
 package com.example.doctorsdiabeticapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.doctorsdiabeticapp.Model.Admin;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -39,10 +45,33 @@ public class SplashScreenActivity extends AppCompatActivity {
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        FirebaseUser currentUser = mAuth.getCurrentUser();
+                        final FirebaseUser currentUser = mAuth.getCurrentUser();
                         if (currentUser != null) {
-                            startActivity(new Intent(getApplicationContext(), MainWindowActivity.class));
-                            finish();
+                            DatabaseReference reference = FirebaseDatabase.getInstance()
+                                    .getReference("Admin").child(mAuth.getUid());
+                            reference.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    Admin admin = snapshot.getValue(Admin.class);
+                                    if (admin == null) {
+                                        startActivity(new Intent(getApplicationContext(),
+                                                MainWindowActivity.class));
+                                        finish();
+                                    }
+                                   else if (currentUser.getEmail().equals(admin.getEmail())
+                                            && admin.getVerification()) {
+                                        startActivity(new Intent(getApplicationContext(),
+                                                AdminPanelActivity.class));
+                                        finish();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
                         } else {
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             finish();
@@ -51,11 +80,11 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }, 2500);
             }
         }).start();
-        Initialize();
+        initialize();
     }
 
 
-    public void Initialize() {
+    public void initialize() {
         new Thread(new Runnable() {
             @Override
             public void run() {
