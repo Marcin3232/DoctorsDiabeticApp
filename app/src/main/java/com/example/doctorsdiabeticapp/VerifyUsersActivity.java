@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.doctorsdiabeticapp.Adapter.VerificationAdapter;
 import com.example.doctorsdiabeticapp.BaseActivity.BaseActivity;
+import com.example.doctorsdiabeticapp.BaseActivity.BaseAdminActivity;
 import com.example.doctorsdiabeticapp.Model.Doctor;
 import com.example.doctorsdiabeticapp.OtherClass.OnItemClickRecyclerListener;
 import com.google.firebase.database.DataSnapshot;
@@ -21,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class VerifyUsersActivity extends BaseActivity implements OnItemClickRecyclerListener {
+public class VerifyUsersActivity extends BaseAdminActivity implements OnItemClickRecyclerListener {
 
     private String title;
     private RecyclerView recyclerView;
@@ -62,7 +63,8 @@ public class VerifyUsersActivity extends BaseActivity implements OnItemClickRecy
                     }
 
                 }
-                adapter = new VerificationAdapter(getApplicationContext(), doctorArrayList, VerifyUsersActivity.this);
+                adapter = new VerificationAdapter(getApplicationContext(), doctorArrayList,
+                        VerifyUsersActivity.this);
                 recyclerView.setAdapter(adapter);
                 recyclerView.invalidate();
             }

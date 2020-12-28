@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.doctorsdiabeticapp.BaseActivity.BaseActivity;
+import com.example.doctorsdiabeticapp.BaseActivity.BaseAdminActivity;
 import com.example.doctorsdiabeticapp.Model.Admin;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -19,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class AdminPanelActivity extends BaseActivity implements View.OnClickListener {
+public class AdminPanelActivity extends BaseAdminActivity implements View.OnClickListener {
 
     private String title;
     private CardView cardViewVerified, cardViewVerify, cardViewSettings, cardViewAddAdmin;

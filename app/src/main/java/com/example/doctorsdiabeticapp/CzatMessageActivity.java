@@ -17,6 +17,7 @@ import com.example.doctorsdiabeticapp.Adapter.MessageAdapter;
 import com.example.doctorsdiabeticapp.BaseActivity.BaseActivity;
 import com.example.doctorsdiabeticapp.Model.ChatMessage;
 import com.example.doctorsdiabeticapp.Model.User;
+import com.example.doctorsdiabeticapp.Security.SecurityString;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -47,7 +48,7 @@ public class CzatMessageActivity extends BaseActivity {
 
     MessageAdapter messageAdapter;
     List<ChatMessage> mchat;
-
+    SecurityString securityString;
     Intent intent;
 
     @Override
@@ -105,7 +106,8 @@ public class CzatMessageActivity extends BaseActivity {
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         reference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
-        profile_image=findViewById(R.id.profile_image_czat);
+        profile_image = findViewById(R.id.profile_image_czat);
+        securityString=new SecurityString();
     }
 
     private boolean emptyMessage() {
@@ -137,7 +139,7 @@ public class CzatMessageActivity extends BaseActivity {
 
     private void sendMessage() {
         ChatMessage message = new ChatMessage(
-                send_message.getText().toString(),
+                securityString.encrypt(send_message.getText().toString()),
                 fUser.getUid(),
                 userId
         );

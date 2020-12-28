@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.doctorsdiabeticapp.Model.ChatMessage;
 import com.example.doctorsdiabeticapp.R;
+import com.example.doctorsdiabeticapp.Security.SecurityString;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -55,9 +56,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MessageAdapter.ViewHolder holder, int position) {
-
+        SecurityString securityString=new SecurityString();
         ChatMessage chatMessage = mChat.get(position);
-        holder.show_message.setText(chatMessage.getMessage());
+
+        holder.show_message.setText(securityString.decrypt(chatMessage.getMessage()));
 
         try {
             if (mImageUrl.equals("")) {
